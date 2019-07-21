@@ -3,12 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "serve": "ng serve",
+    "start": "npx concurrently --kill-others --restart-tries=3 --restart-after=300 \"npm run build:my-lib:watch\" \"npx wait-on ./node_modules/@workspace/my-lib/public-api.d.ts && npm run serve\"",
     "prestart:prod": "npm run build:prod",
-    "start:prod":"npx serve -S ./dist/workspace",
+    "start:prod": "npx serve -S ./dist/workspace",
     "build": "ng build",
     "build:prod": "npm run build:my-lib && ng build --prod",
     "build:my-lib": "ng build @workspace/my-lib",
+    "build:my-lib:watch": "npm run build:my-lib -- --watch",
+    "postinstall": "npm run build:my-lib",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
