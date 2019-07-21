@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@workspace/my-lib": [
+        "dist/@workspace/my-lib"
+      ],
+      "@workspace/my-lib/*": [
+        "dist/@workspace/my-lib/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
