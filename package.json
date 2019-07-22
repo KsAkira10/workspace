@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "serve": "ng serve",
-    "start": "concurrently --kill-others --restart-tries=3 --restart-after=300 \"npm run build:libs:watch\" \"wait-on ./node_modules/@workspace/my-lib/public-api.d.ts && npm run serve\"",
+    "start": "concurrently --kill-others --restart-tries=3 --restart-after=300 \"npm run build:libs:watch\" \"wait-on ./node_modules/@workspace/my-lib/public-api.d.ts, ./node_modules/@workspace/my-styles-lib/public-api.d.ts && npm run serve\"",
     "prestart:prod": "npm run build:prod",
     "start:prod": "serve -S ./dist/workspace",
     "build": "ng build",
@@ -30,6 +30,7 @@
     "@angular/platform-browser": "~8.1.0",
     "@angular/platform-browser-dynamic": "~8.1.0",
     "@angular/router": "~8.1.0",
+    "bootstrap": "^4.3.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"

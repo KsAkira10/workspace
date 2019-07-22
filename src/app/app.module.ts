@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MyLibModule } from '@workspace/my-lib';
+import { MyStylesLibModule } from '@workspace/my-styles-lib';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { MyLibModule } from '@workspace/my-lib';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MyStylesLibModule,
     MyLibModule
   ],
   providers: [],

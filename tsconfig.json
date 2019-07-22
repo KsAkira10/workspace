@@ -30,6 +30,12 @@
       ],
       "@workspace/my-styles-lib/*": [
         "dist/workspace/my-styles-lib/*"
+      ],
+      "bootstrap": [
+        "node_modules/bootstrap"
+      ],
+      "bootstrap/*": [
+        "node_modules/bootstrap/*"
       ]
     }
   },
