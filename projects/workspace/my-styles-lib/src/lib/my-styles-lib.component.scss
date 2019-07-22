@@ -1,7 +1,2 @@
-:host {
-    body {
-        p {
-          color: blue!important;
-        }
-    }
-}
+@import '../../../../../node_modules/bootstrap/scss/bootstrap-grid.scss';
+@import '../styles/neon-foundation.scss';

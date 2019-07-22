@@ -1,0 +1,105 @@
+/**
+ * CND Neon
+ */
+$cdnUrl: 'https://neonassets.com';
+
+/**
+ * Colors
+ */
+$color-pallete: (
+  azul-escuro: #0046a0,
+  azul-medio: #0073cd,
+  azul-claro: #00a5f0,
+  verde-claro: #00d7d7,
+  verde-medio: #00a0a0,
+  verde-escuro: #008282,
+  amarelo: #ffc800,
+  vermelho: #ff4650,
+  verde-financas: #a8ff4a,
+  highlight: #0ff,
+  cinza-escuro: #2d3c46,
+  cinza-medio: #6e7882,
+  cinza-claro: #f1f3f4,
+  branco: #fff,
+  preto-5: rgba(0, 0, 0, .05),
+  preto-10: rgba(0, 0, 0, .1),
+  preto-20: rgba(0, 0, 0, .2),
+  preto-50: rgba(0, 0, 0, .5),
+  preto-80: rgba(0, 0, 0, .8),
+  branco-5: rgba(255, 255, 255, .05),
+  branco-10: rgba(255, 255, 255, .1),
+  branco-20: rgba(255, 255, 255, .2),
+  branco-50: rgba(255, 255, 255, .5),
+) !default;
+
+/**
+ * Typography
+ */
+$averta: 'averta', Arial, sans-serif;
+$icons: 'Material Icons', sans-serif;
+
+/**
+ * Font family
+ */
+$fonts: (
+  'default': (
+    'family': 'averta',
+    'weight': (
+      'regular': 400,
+      'bold': 600,
+    )
+  )
+) !default;
+
+$font-sizes: (
+  'xxl': (
+    'font_size': 50,
+    'line_height': 60,
+  ),
+  'xl': (
+    'font_size': 40,
+    'line_height': 50,
+  ),
+  'l': (
+    'font_size': 30,
+    'line_height': 40,
+  ),
+  'm': (
+    'font_size': 20,
+    'line_height': 30,
+  ),
+  'default': (
+    'font_size': 18,
+    'line_height': 30,
+  ),
+  's': (
+    'font_size': 16,
+    'line_height': 20,
+  ),
+  'xs': (
+    'font_size': 14,
+    'line_height': 20,
+  ),
+  'xxs': (
+    'font_size': 12,
+    'line_height': 18,
+  ),
+) !default;
+
+/**
+ * Bootstrap grid values
+ **/
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1054px
+) !default;
+
+$grid-breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xl: 1400px,
+) !default;

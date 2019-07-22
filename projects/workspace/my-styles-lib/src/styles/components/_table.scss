@@ -1,0 +1,58 @@
+%table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 10px;
+  font-family: $averta;
+  background-color: neon-color(branco);
+  color: neon-color(cinza-escuro);
+
+  thead {
+    padding: 10px 20px;
+
+    tr {
+      &:first-child {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 25px;
+
+        th {
+          color: neon-color(azul-claro);
+        }
+      }
+
+      &:last-child {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 23px;
+        border-bottom: solid 1px neon-color(preto-20);
+      }
+    }
+  }
+
+  tbody {
+    padding: 0 20px 20px;
+    font-size: 16px;
+    line-height: 20px;
+
+    tr {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: solid 1px neon-color(cinza-claro);
+
+      &:last-child {
+        border: none;
+      }
+
+      td {
+        padding: 10px 0;
+      }
+    }
+  }
+}

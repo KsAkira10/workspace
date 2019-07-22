@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "serve:libs": "npm run wait:libs",
     "serve": "ng serve",
-    "start": "concurrently --kill-others --restart-tries=3 --restart-after=300 \"npm run build:libs:watch\" \"wait-on ./node_modules/@workspace/my-lib/public-api.d.ts, ./node_modules/@workspace/my-styles-lib/public-api.d.ts && npm run serve\"",
+    "start": "concurrently -k -d \"npm run wait:libs\" \"npm run build:libs:watch\"",
     "prestart:prod": "npm run build:prod",
     "start:prod": "serve -S ./dist/workspace",
     "build": "ng build",
@@ -18,7 +19,8 @@
     "postinstall": "npm run build:libs",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "wait:libs": "wait-on node_modules/@workspace/my-lib/public-api.d.ts node_modules/@workspace/my-styles-lib/public-api.d.ts && ng serve" 
   },
   "private": true,
   "dependencies": {

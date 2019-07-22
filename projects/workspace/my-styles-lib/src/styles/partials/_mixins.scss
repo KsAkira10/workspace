@@ -1,0 +1,187 @@
+@import 'variables';
+
+/**
+ * Map deep get
+ **/
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+
+  @return $map;
+}
+
+/**
+ * Pixel to rem
+ **/
+@function neon-rem($px: 16) {
+  $pxvalues: null;
+  $remvalues: null;
+
+  @each $pxvalue in $px {
+    $pxvalues: append($pxvalues, ($pxvalue)+px);
+    $remvalues: append($remvalues, ($pxvalue/16)+rem);
+  }
+
+  @return $remvalues;
+}
+
+/**
+ * @font-face
+ */
+@mixin neon-fonts {
+  @each $font-name, $font in $fonts {
+    $font-family: map-get($font, 'family');
+
+    @each $font-face, $font-weight in map-get($font, 'weight') {
+      $src: '#{$font-family}-#{$font-face}';
+
+      @font-face {
+        font-family: $font-family;
+        font-style: normal;
+        font-weight: $font-weight;
+        src: url('#{$cdnUrl}/fonts/#{$src}.woff2') format('woff2'),
+          url('#{$cdnUrl}/fonts/#{$src}.woff') format('woff');
+      }
+    }
+
+    .font-#{$font-name} {
+      font-family: font-family($font-name);
+    }
+  }
+
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: normal;
+    src: url('node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2') format('woff2'),
+      url('node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff') format('woff');
+  }
+
+  .material-icons {
+    display: inline-block;
+    font-family: 'Material Icons', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    direction: ltr;
+    font-feature-settings: 'liga';
+  }
+}
+
+/**
+ * Typography
+ */
+@mixin neon-typography {
+  @each $identifier, $size in $font-sizes {
+    .font-size-#{$identifier} {
+      &,
+      & > * {
+        font-size: map-deep-get($font-sizes, $identifier, 'font_size') + px !important;
+        line-height: map-deep-get($font-sizes, $identifier, 'line_height') + px !important;
+      }
+    }
+  }
+}
+
+/**
+ * Font sizes
+ **/
+@function neon-font-size($size) {
+  @return neon-rem(map-deep-get($font-sizes, $size, 'font_size'));
+}
+
+@mixin neon-font($size) {
+  font-size: neon-rem(map-deep-get($font-sizes, $size, 'font_size' ));
+  line-height: neon-rem(map-deep-get($font-sizes, $size, 'line_height' ));
+}
+
+/**
+ * Colors
+ **/
+@function neon-color($color) {
+  @return map-get($color-pallete, $color);
+}
+
+/**
+ * Colors / Background colors
+ **/
+@mixin neon-colors {
+  @each $name, $color in $color-pallete {
+    .bg-#{$name} {
+      background-color: $color !important;
+
+      &.button:hover,
+      &.bg-darken:hover {
+        background-color: darken($color, 5%) !important;
+      }
+    }
+
+    .color-#{$name},
+    .color-#{$name} > * {
+      color: $color !important;
+      border-color: $color !important;
+    }
+  }
+}
+
+/**
+ * Neon Gradients
+ **/
+@mixin neon-gradient {
+  background: linear-gradient(to right, neon-color(azul-claro) 0%, neon-color(verde-claro) 90%);
+}
+
+/**
+ * Equal size
+ **/
+@mixin size($size) {
+  width: $size;
+  height: $size;
+}
+
+/**
+ * Placeholder
+ **/
+@mixin placeholder-values($color, $font-size, $text-align, $font-weight, $transition-delay) {
+  @if $font-size != '' {
+    font-size: $font-size;
+  }
+  @if $font-weight != '' {
+    font-weight: $font-weight;
+  }
+  @if $text-align != '' {
+    text-align: $text-align;
+  }
+  @if $color != '' {
+    color: $color;
+  }
+  @if $transition-delay != '' {
+    transition: color 200ms ease $transition-delay;
+  }
+}
+
+@mixin placeholder($color: '', $font-size: '', $text-align: '', $font-weight: '', $transition-delay: '') {
+  &::-webkit-input-placeholder {
+    @include placeholder-values($color, $font-size, $text-align, $font-weight, $transition-delay);
+  }
+
+  &:-ms-input-placeholder {
+    @include placeholder-values($color, $font-size, $text-align, $font-weight, $transition-delay);
+  }
+
+  &::-moz-placeholder {
+    @include placeholder-values($color, $font-size, $text-align, $font-weight, $transition-delay);
+  }
+
+  &:-moz-placeholder {
+    @include placeholder-values($color, $font-size, $text-align, $font-weight, $transition-delay);
+  }
+}

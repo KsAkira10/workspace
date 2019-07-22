@@ -1,0 +1,46 @@
+/*!
+ * Neon Foundation v1.0.0 (https://neon.com.br/)
+ * Copyright 2019 The Neon Developers
+ * Copyright 2015-2019 Neon Pagamentos S.A.
+ */
+
+@import 'partials/mixins';
+@import 'partials/variables';
+@import 'partials/reset';
+
+// Include default mixins
+@include neon-fonts;
+@include neon-typography;
+@include neon-colors;
+
+// Components imports
+@import 'components/button';
+@import 'components/card';
+@import 'components/table';
+
+// Components includes
+
+.neon-gradient,
+.bg-gradiente-neon {
+  @include neon-gradient;
+}
+
+.button {
+  @extend %button;
+
+  &--small {
+    @extend %button--small;
+  }
+
+  &--outline {
+    @extend %button--outline;
+  }
+}
+
+.card-detail {
+  @extend %card;
+}
+
+.table-invest {
+  @extend %table;
+}

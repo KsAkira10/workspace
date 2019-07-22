@@ -3,8 +3,7 @@ import { MyStylesLibComponent } from './my-styles-lib.component';
 
 @NgModule({
   declarations: [MyStylesLibComponent],
-  imports: [
-  ],
+  imports: [],
   exports: [MyStylesLibComponent],
   bootstrap: [MyStylesLibComponent]
 })

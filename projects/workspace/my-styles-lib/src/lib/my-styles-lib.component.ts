@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-bootstrap',
+  // tslint:disable-next-line: component-selector
+  selector: 'bootstrap',
   templateUrl: './my-styles-lib.component.html',
-  styleUrls: ['./../../../../../node_modules/bootstrap/scss/bootstrap-grid.scss', './my-styles-lib.component.scss']
+  styleUrls: ['./my-styles-lib.component.scss']
 })
 export class MyStylesLibComponent implements OnInit {
 
