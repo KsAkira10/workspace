@@ -24,6 +24,12 @@
       ],
       "@workspace/my-lib/*": [
         "dist/@workspace/my-lib/*"
+      ],
+      "@workspace/my-styles-lib": [
+        "dist/workspace/my-styles-lib"
+      ],
+      "@workspace/my-styles-lib/*": [
+        "dist/workspace/my-styles-lib/*"
       ]
     }
   },
